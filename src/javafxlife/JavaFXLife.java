@@ -65,9 +65,10 @@ public class JavaFXLife extends Application {
         final Menu fileMenu = new Menu("File");
         final Menu speedMenu = new Menu("Speed");
         final Menu optionsMenu = new Menu("Options");
+        final Menu superSpeedMenu = new Menu("Super Speed");
         final Menu helpMenu = new Menu("Help");
 
-        myBar.getMenus().addAll(fileMenu, speedMenu, optionsMenu, helpMenu);
+        myBar.getMenus().addAll(fileMenu, speedMenu, optionsMenu, superSpeedMenu, helpMenu);
 
         /**
          * *********************************************************************
@@ -171,16 +172,15 @@ public class JavaFXLife extends Application {
          * *********************************************************************
          * Help Menu Section
          */
-        
-        MenuItem jp = new MenuItem("JP");
+        MenuItem jp = new MenuItem("AM");
         jp.setOnAction(e -> {
             lifePane.pause();
             lifePane.clearCells();
             readFile(new File("jp.txt"));
             lifePane.drawCells();
         });
-        helpMenu.getItems().add(jp);        
-        
+        helpMenu.getItems().add(jp);
+
         MenuItem acorn = new MenuItem("Acorn");
         acorn.setOnAction(e -> {
             lifePane.pause();
@@ -219,8 +219,22 @@ public class JavaFXLife extends Application {
             alert.showAndWait();
         });
         helpMenu.getItems().add(about);
-
+        
+        /**
+         * *************************************************************************
+         * Super Speed Menu Section
+         */
+        
+        MenuItem fasterx1000 = new MenuItem("Faster x 1000");
+        fasterx1000.setOnAction(e -> lifePane.increaseSpeedx1000());
+        superSpeedMenu.getItems().add(fasterx1000);
+        
+        MenuItem slowerx1000 = new MenuItem("Slower x 1000");
+        slowerx1000.setOnAction(e -> lifePane.decreaseSpeedx1000());
+        superSpeedMenu.getItems().add(slowerx1000);
+        
         return myBar;
+
     }
 
     /**
