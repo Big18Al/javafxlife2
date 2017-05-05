@@ -113,6 +113,10 @@ public class LifePane extends Pane {
     public void increaseSpeedx100() {
         animation.setRate(animation.getRate() + 100.0);
     }
+    
+    public void increaseSpeedx1000() {
+        animation.setRate(animation.getRate() + 1000.0);
+    }
 
     public void decreaseSpeed() {
         if (animation.getRate() >= 1.0) {
@@ -129,6 +133,12 @@ public class LifePane extends Pane {
     public void decreaseSpeedx100() {
         if (animation.getRate() >= 100.5) {
             animation.setRate(animation.getRate() - 100.0);
+        }
+    }
+    
+    public void decreaseSpeedx1000() {
+        if (animation.getRate() >= 1000.5) {
+            animation.setRate(animation.getRate() - 1000.0);
         }
     }
 
